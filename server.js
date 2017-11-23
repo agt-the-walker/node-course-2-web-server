@@ -2,6 +2,7 @@ const express = require('express')
 const fs = require('fs')
 const hbs = require('hbs')
 
+const port = process.env.PORT || 3000
 const app = express()
 
 hbs.registerPartials(__dirname + '/views/partials')
@@ -37,4 +38,4 @@ app.get('/about', (req, res) =>
 app.get('/bad', (req, res) =>
   res.send({errorMessage: 'Unable to handle request'})
 )
-app.listen(3000, () => console.log('Server is up'))
+app.listen(port, () => console.log(`Server is up on port ${port}`))
